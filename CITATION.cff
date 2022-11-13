@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Fonod
+    given-names: Robert
+    orcid: https://orcid.org/0000-0002-9434-3156
+title: "Magnetic Detumbling of Fast-tumbling Picosatellites"
+version: 0.8
+date-released: 2022-11-13
+url: "https://github.com/rfonod/detumbling-simulator"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  authors:
+  - family-names: "Fonod"
+    given-names: "Robert"
+    orcid: "https://orcid.org/0000-0002-9434-3156"
+  - family-names: "Gill"
+    given-names: "Eberhard"
+  title: "Magnetic Detumbling of Fast-tumbling Picosatellites"
+  booktitle: "69th International Astronautical Congress"
+  month: 10
+  year: 2018
+  address: "Bremen, Germany"
+identifiers:
+  - description: "Post-print"
+    type: url
+    value: https://repository.tudelft.nl/islandora/object/uuid:aedf23cb-a2d4-49e7-8244-1524aa6e0de3/datastream/OBJ/download
+keywords:
+ - picosatellite
+ - "magnetic detumbling"
+ - B-dot
+ - "attitude control"
+ - stability
