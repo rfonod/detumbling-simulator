@@ -28,20 +28,54 @@ end
 
 function test_torque_free_conserves_momentum_and_energy(testCase)
 % With no external torque, Euler's equations conserve the angular momentum
-% magnitude and the rotational kinetic energy
+% magnitude and the rotational kinetic energy. Checked at the 30 deg/s rate
+% of the default run, where the RK4 truncation error is negligible.
 global I rho %#ok<GVMIS>
 rho = 0;
 inp = struct('m_del',zeros(3,1),'m_res',zeros(3,1),'b_I',zeros(3,1), ...
     'v_I',[7.7e3;0;0],'T_gg',zeros(3,1));
 q = [0; 0; 0; 1];
-w = deg2rad([180; 180; 180]);
+w = deg2rad([30; 30; 30]);
 H0 = norm(I*w);
 E0 = 0.5*w'*I*w;
 for k = 1:100
     [q,w] = propag_att([0 0.25],[q; w],inp,'RK4');
 end
-verifyEqual(testCase, norm(I*w), H0, 'RelTol', 1e-3);
-verifyEqual(testCase, 0.5*w'*I*w, E0, 'RelTol', 1e-3);
+verifyEqual(testCase, norm(I*w), H0, 'RelTol', 1e-4);
+verifyEqual(testCase, 0.5*w'*I*w, E0, 'RelTol', 1e-4);
+end
+
+function test_fast_tumble_energy_drift_is_integrator_truncation(testCase)
+% At the paper's 180 deg/s tumble, the RK4 sub-step of 0.125 s that propag_att
+% picks for a 4 Hz control loop loses a few percent of the rotational energy
+% over 25 s of torque-free motion. Refining the sub-step by a factor of ten
+% recovers it, which shows the drift is integrator truncation and not a
+% modelling error. Fidelity studies at fast tumble rates should use ODE45 or a
+% shorter propagation span.
+global I rho %#ok<GVMIS>
+rho = 0;
+inp = struct('m_del',zeros(3,1),'m_res',zeros(3,1),'b_I',zeros(3,1), ...
+    'v_I',[7.7e3;0;0],'T_gg',zeros(3,1));
+w0 = deg2rad([180; 180; 180]);
+E0 = 0.5*w0'*I*w0;
+
+% Coarse: the 0.125 s sub-step used by the simulator at f_c = 4 Hz
+q = [0; 0; 0; 1]; w = w0;
+for k = 1:100
+    [q,w] = propag_att([0 0.25],[q; w],inp,'RK4');
+end
+drift_coarse = abs(0.5*w'*I*w - E0)/E0;
+
+% Fine: the same 25 s, propagated in 0.0125 s steps
+q = [0; 0; 0; 1]; w = w0;
+for k = 1:2000
+    [q,w] = propag_att([0 0.0125],[q; w],inp,'RK4');
+end
+drift_fine = abs(0.5*w'*I*w - E0)/E0;
+
+verifyLessThan(testCase, drift_coarse, 0.05);   % a few percent, not a blow-up
+verifyLessThan(testCase, drift_fine, 1e-4);     % vanishes as the step shrinks
+verifyLessThan(testCase, drift_fine, drift_coarse);
 end
 
 function test_rk4_and_ode45_agree(testCase)

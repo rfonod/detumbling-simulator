@@ -197,7 +197,8 @@ Detumbling performance is statistically indistinguishable between the two laws, 
 ## Limitations
 
 - The orbit is **circular and Keplerian**: no J2 precession, no drag decay. Over the ~1 day of a detumble this is a reasonable approximation, but it is an approximation.
-- The **gravity-gradient torque is disabled** in the torque sum (see the roadmap above); the residual-dipole and aerodynamic torques are active.
+- The **gravity-gradient torque is disabled** in the torque sum: it is computed in `main.m` and handed to the propagator, but the line adding it is commented out in `propag_att.m`. The residual-dipole and aerodynamic torques are active.
+- The default **RK4 sub-step of 0.125 s is coarse at fast tumble rates**. In torque-free motion at 180 °/s it loses about 2 % of the rotational kinetic energy over 25 s, an integrator truncation error that shrinks with the step size (see `tests/test_dynamics.m`). It is acceptable for the detumbling trend, which is what this simulator is for, but use `att_solv = 'ODE45'` for fidelity work at high rates.
 - Air density is a **fixed constant** chosen from a three-level solar-activity table, not a dynamic atmosphere model. The `Future/` line addresses this with NRLMSISE-00.
 - Solar radiation pressure is not modelled in the main simulator.
 - Parameters are edited **in the source file**; there is no configuration file or command-line interface.
