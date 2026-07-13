@@ -1,34 +1,49 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+title: "Detumbling Simulator: Magnetic Detumbling Control and Simulation for Fast-tumbling Picosatellites"
+message: "If you use this software, please cite both the software and the preferred conference paper below."
+type: software
 authors:
   - family-names: Fonod
     given-names: Robert
+    email: robert.fonod@ieee.org
     orcid: https://orcid.org/0000-0002-9434-3156
-title: "Magnetic Detumbling of Fast-tumbling Picosatellites"
-version: 0.8
-date-released: 2022-11-13
+repository-code: "https://github.com/rfonod/detumbling-simulator"
 url: "https://github.com/rfonod/detumbling-simulator"
 license: MIT
+version: 1.0.0
+date-released: "2026-07-13"
+keywords:
+  - picosatellite
+  - CubeSat
+  - PocketQube
+  - "magnetic detumbling"
+  - B-dot
+  - "attitude control"
+  - "attitude dynamics"
+  - ADCS
+  - magnetorquer
+  - magnetometer
+  - "Monte Carlo simulation"
+  - MATLAB
 preferred-citation:
   type: conference-paper
-  authors:
-  - family-names: "Fonod"
-    given-names: "Robert"
-    orcid: "https://orcid.org/0000-0002-9434-3156"
-  - family-names: "Gill"
-    given-names: "Eberhard"
   title: "Magnetic Detumbling of Fast-tumbling Picosatellites"
-  booktitle: "69th International Astronautical Congress"
+  authors:
+    - family-names: Fonod
+      given-names: Robert
+      orcid: "https://orcid.org/0000-0002-9434-3156"
+    - family-names: Gill
+      given-names: Eberhard
+  collection-title: "Proceedings of the 69th International Astronautical Congress (IAC)"
+  conference:
+    name: "69th International Astronautical Congress"
+    city: Bremen
+    country: DE
   month: 10
   year: 2018
-  address: "Bremen, Germany"
+  notes: "IAC-18-C1.3.11"
+  url: "https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf"
 identifiers:
-  - description: "Post-print"
+  - description: "Post-print of the conference paper"
     type: url
-    value: https://repository.tudelft.nl/islandora/object/uuid:aedf23cb-a2d4-49e7-8244-1524aa6e0de3/datastream/OBJ/download
-keywords:
- - picosatellite
- - "magnetic detumbling"
- - B-dot
- - "attitude control"
- - stability
+    value: "https://repository.tudelft.nl/islandora/object/uuid:aedf23cb-a2d4-49e7-8244-1524aa6e0de3/datastream/OBJ/download"

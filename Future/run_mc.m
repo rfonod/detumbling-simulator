@@ -8,7 +8,7 @@ data = zeros(25+3*N_orb-1,N); % Data array pre-allocation
 tic
 parfor_progress(N);
 parfor i=1:N
-    data_tmp = main_new(i); 
+    data_tmp = main(i); % N_orb above must match the one set in Future/main.m
     data(:,i) = data_tmp;
   
     parfor_progress;

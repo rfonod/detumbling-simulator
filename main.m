@@ -1,4 +1,4 @@
-function [data] = main(seed)
+function [data] = main(seed, N_orb_mc)
 %--------------------------------------------------------------------------
 %                             MAIN FUNCTION
 %           Simplified ADCS Simulator for Delfi-PQ (Detumbling mode)
@@ -25,6 +25,9 @@ r2d = 1/d2r;          % rad to deg conversion
 
 %% Simulation Related Parameters
 N_orb = 10;           % number of orbits (1h day ~ 16 orb) per simulation [-]
+if nargin >= 2        % Monte Carlo campaigns override it from run_mc.m
+    N_orb = N_orb_mc;
+end
 q0 = [1 0 0 0]';      % initial attitude (BODY wrt ECI) quaternion [q_v,q_s] [-]
 w0 = 30*[1;1;1]*d2r;  % initial angular velocity (BODY wrt ECI) [rad/s]
 no_C  = 0;            % duration of no-control after release [s] /1800 = 30 min/
@@ -445,7 +448,7 @@ if MC_on
     data(16:18,1) = w0;
     data(19:21,1) = t_on_sum_w;
     data(22:24,1) = t_on_sum_p;
-    data(25:25+N_orb-1,1) = t_on_orb;
+    data(25:24+3*N_orb,1) = t_on_orb(:); % [x;y;z] per orbit, orbit by orbit
 else
     toc
     all_var = who;

@@ -510,7 +510,7 @@ if MC_on
     data(19:21,1) = t_on_sum_w;
     data(22:24,1) = t_on_sum_p;
     
-    data(25:25+N_orb-1,1) = t_on_orb;
+    data(25:24+3*N_orb,1) = t_on_orb(:); % [x;y;z] per orbit, orbit by orbit
 else
     toc
     all_var = who;

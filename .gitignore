@@ -1,3 +1,14 @@
+# Cached orbit data, regenerated on demand by main.m (large, machine-specific)
+Existing_Orbits/
+
+# parfor_progress scratch file
+parfor_progress.txt
+
+# Figures and data exported by plots.m / main.m
+*.eps
+!MC_Results/*.eps
+data4test_*.csv
+
 # Windows default autosave extension
 *.asv
 

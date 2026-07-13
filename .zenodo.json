@@ -1,0 +1,46 @@
+{
+  "title": "Detumbling Simulator: Magnetic Detumbling Control and Simulation for Fast-tumbling Picosatellites",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "publication_date": "2026-07-13",
+  "description": "<p><a href=\"https://github.com/rfonod/detumbling-simulator/\" rel=\"noopener\"><strong>Detumbling Simulator</strong></a> is a MATLAB attitude-dynamics simulator for the pure magnetic detumbling of a fast-tumbling picosatellite: a spacecraft that leaves its deployer spinning at up to 180 deg/s and must be brought to rest using only three magnetorquers and two magnetometers, with no gyroscopes, no reaction wheels, and no attitude estimate. It closes the loop end to end (IGRF geomagnetic field, rigid-body dynamics, aerodynamic and residual-dipole disturbances, quantized and biased magnetometers, PWM-driven magnetorquers, and a B-dot control law with an autonomous detumbled/tumbling state machine) and wraps it in a Monte Carlo harness that disperses mass, inertia, actuator strength, and sensor errors across hundreds of runs. It is the simulator behind the IAC-18 paper <em>Magnetic Detumbling of Fast-tumbling Picosatellites</em>, developed for the Delfi-PQ picosatellite.</p>\n<h2>Features</h2>\n<ul>\n<li><strong>Sensor-realistic sensing</strong>: two magnetometers with independent noise, hard-iron bias, finite resolution, and mounting rotations, fused into a weighted average.</li>\n<li><strong>Actuator-realistic actuation</strong>: duty-cycled PWM magnetorquer commands with a finite rise time and a saturation limit.</li>\n<li><strong>Autonomous state machine</strong>: a filtered tumble parameter with hysteresis and confirmation timers decides when the satellite is detumbled or tumbling, requiring no rate sensor and no ground contact.</li>\n<li><strong>Environment models</strong>: IGRF-12 geomagnetic field, Keplerian LEO orbit with ECI/ECEF/body frame handling, six-face aerodynamic drag torque, residual magnetic dipole, and gravity-gradient torque.</li>\n<li><strong>Monte Carlo campaigns</strong>: dispersed mass, inertia, maximum dipole, residual dipole, and sensor biases drawn from 3-sigma truncated Gaussians, fanned out over parfor.</li>\n<li><strong>Reproducible results</strong>: the raw Monte Carlo data behind the paper's figures ships with the repository, together with the evaluation script that turns it into statistics and plots.</li>\n</ul>\n<h2>Citation</h2>\n<p>If you use this simulator in your research, please cite the conference paper:</p>\n<pre><code>@InProceedings{Fon18a,\n  author    = {Fonod, Robert and Gill, Eberhard},\n  title     = {Magnetic Detumbling of Fast-tumbling Picosatellites},\n  booktitle = {69th International Astronautical Congress},\n  year      = {2018},\n  month     = {October},\n  address   = {Bremen, Germany},\n  note      = {IAC-18-C1.3.11}\n}</code></pre>\n<h2>License</h2>\n<p>This project is distributed under the MIT License. Bundled third-party code retains its original license, as listed in THIRD_PARTY.md.</p>",
+  "creators": [
+    {
+      "name": "Fonod, Robert",
+      "orcid": "0000-0002-9434-3156"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "Picosatellite",
+    "PocketQube",
+    "CubeSat",
+    "Delfi-PQ",
+    "Magnetic Detumbling",
+    "B-dot Control",
+    "Attitude Control",
+    "Attitude Dynamics",
+    "ADCS",
+    "Magnetorquer",
+    "Magnetometer",
+    "IGRF",
+    "Low Earth Orbit",
+    "Monte Carlo Simulation",
+    "Spacecraft Simulation",
+    "MATLAB"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/rfonod/detumbling-simulator/tree/v1.0.0",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-conferencepaper"
+    }
+  ]
+}

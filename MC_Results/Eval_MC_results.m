@@ -69,7 +69,7 @@ t_on_w_std_sum = std(sum(t_on_w,1));
 % in seconds
 t_on_p_mean = mean(t_on_p,2);
 t_on_p_med  = median(t_on_p,2);
-t_on_p_std  = std(t_on_p,0,22);
+t_on_p_std  = std(t_on_p,0,2);
 
 % in seconds
 if size(data,1) == 56
@@ -139,7 +139,7 @@ if cmp_act
     % in seconds
     t_on_p_mean2 = mean(t_on_p2,2);
     t_on_p_med2  = median(t_on_p2,2);
-    t_on_p_std2  = std(t_on_p2,0,22);
+    t_on_p_std2  = std(t_on_p2,0,2);
     
     % in seconds
     if ~data_ver2
