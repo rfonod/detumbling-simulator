@@ -33,6 +33,11 @@
   ],
   "related_identifiers": [
     {
+      "identifier": "10.5281/zenodo.21346158",
+      "relation": "isVersionOf",
+      "resource_type": "software"
+    },
+    {
       "identifier": "https://github.com/rfonod/detumbling-simulator/tree/v1.0.0",
       "relation": "isSupplementTo",
       "resource_type": "software"

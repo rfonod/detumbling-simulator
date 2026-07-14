@@ -7,8 +7,16 @@ authors:
     given-names: Robert
     email: robert.fonod@ieee.org
     orcid: https://orcid.org/0000-0002-9434-3156
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21346158
+    description: "Zenodo archive (concept DOI, always resolves to the latest version)"
+  - description: "Post-print of the conference paper"
+    type: url
+    value: "https://repository.tudelft.nl/islandora/object/uuid:aedf23cb-a2d4-49e7-8244-1524aa6e0de3/datastream/OBJ/download"
 repository-code: "https://github.com/rfonod/detumbling-simulator"
 url: "https://github.com/rfonod/detumbling-simulator"
+doi: 10.5281/zenodo.21346158
 license: MIT
 version: 1.0.0
 date-released: "2026-07-13"
@@ -43,7 +51,3 @@ preferred-citation:
   year: 2018
   notes: "IAC-18-C1.3.11"
   url: "https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf"
-identifiers:
-  - description: "Post-print of the conference paper"
-    type: url
-    value: "https://repository.tudelft.nl/islandora/object/uuid:aedf23cb-a2d4-49e7-8244-1524aa6e0de3/datastream/OBJ/download"

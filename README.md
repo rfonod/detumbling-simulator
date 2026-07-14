@@ -1,6 +1,6 @@
 # Detumbling Simulator
 
-[![GitHub Release](https://img.shields.io/github/v/release/rfonod/detumbling-simulator?include_prereleases)](https://github.com/rfonod/detumbling-simulator/releases) [![CI](https://img.shields.io/github/actions/workflow/status/rfonod/detumbling-simulator/ci.yml?branch=master&label=CI)](https://github.com/rfonod/detumbling-simulator/actions/workflows/ci.yml) [![MATLAB](https://img.shields.io/badge/MATLAB-R2018b%2B-orange)](https://www.mathworks.com/products/matlab.html) [![License](https://img.shields.io/github/license/rfonod/detumbling-simulator)](https://github.com/rfonod/detumbling-simulator/blob/master/LICENSE) [![GitHub Issues](https://img.shields.io/github/issues/rfonod/detumbling-simulator)](https://github.com/rfonod/detumbling-simulator/issues) [![Conference Paper](https://img.shields.io/badge/Paper-IAC--18--C1.3.11-blue)](https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf) [![Development Status](https://img.shields.io/badge/development-research%20code-yellow)](https://github.com/rfonod/detumbling-simulator)
+[![GitHub Release](https://img.shields.io/github/v/release/rfonod/detumbling-simulator?include_prereleases)](https://github.com/rfonod/detumbling-simulator/releases) [![CI](https://img.shields.io/github/actions/workflow/status/rfonod/detumbling-simulator/ci.yml?branch=master&label=CI)](https://github.com/rfonod/detumbling-simulator/actions/workflows/ci.yml) [![MATLAB](https://img.shields.io/badge/MATLAB-R2018b%2B-orange)](https://www.mathworks.com/products/matlab.html) [![License](https://img.shields.io/github/license/rfonod/detumbling-simulator)](https://github.com/rfonod/detumbling-simulator/blob/master/LICENSE) [![GitHub Issues](https://img.shields.io/github/issues/rfonod/detumbling-simulator)](https://github.com/rfonod/detumbling-simulator/issues) [![Conference Paper](https://img.shields.io/badge/Paper-IAC--18--C1.3.11-blue)](https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21346158.svg)](https://doi.org/10.5281/zenodo.21346158) [![Development Status](https://img.shields.io/badge/development-research%20code-yellow)](https://github.com/rfonod/detumbling-simulator)
 
 **Detumbling Simulator** is a MATLAB attitude-dynamics simulator for the *pure magnetic detumbling* of a fast-tumbling picosatellite: a spacecraft that leaves its deployer spinning at up to 180 °/s and must be brought to rest using nothing but three magnetorquers and two magnetometers, with no gyroscopes, no reaction wheels, and no attitude estimate. It closes the loop end to end (IGRF geomagnetic field, rigid-body dynamics, aerodynamic and residual-dipole disturbances, quantized and biased magnetometers, PWM-driven magnetorquers, and a B-dot control law with an autonomous detumbled/tumbling state machine) and wraps it in a Monte Carlo harness that disperses mass, inertia, actuator strength, and sensor errors across hundreds of runs. It is the simulator behind the IAC-18 paper [*Magnetic Detumbling of Fast-tumbling Picosatellites*](https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf), developed for [Delfi-PQ](https://www.tudelft.nl/lr/delfi-space/delfi-pq).
 
@@ -205,24 +205,41 @@ Detumbling performance is statistically indistinguishable between the two laws, 
 
 ## Citing This Work
 
-If you use this simulator in your research, please cite the conference paper:
+If you use **Detumbling Simulator** in your research, software, or product, please cite the following resources appropriately:
 
-```bibtex
-@InProceedings{Fon18a,
-  author    = {Fonod, Robert and Gill, Eberhard},
-  title     = {Magnetic Detumbling of Fast-tumbling Picosatellites},
-  booktitle = {69th International Astronautical Congress},
-  year      = {2018},
-  month     = {October},
-  address   = {Bremen, Germany},
-  note      = {IAC-18-C1.3.11},
-  url       = {https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf}
-}
-```
+1. **Preferred Citation:** Please cite the associated conference paper for any use of the simulator, including research, applications, and derivative work:
 
-**Abstract:** *The problem of pure magnetic detumbling of a fast-tumbling picosatellite is considered. A new weighted B-dot control algorithm is proposed. The algorithm enables power reduction while not sacrificing detumbling performance. Analytical expressions relating the maximal expected rotational rate to the minimum sampling time required are presented. Simulation results demonstrate the practical benefits of the proposed approach for picosatellites.*
+    ```bibtex
+    @InProceedings{fonod2018magnetic,
+      author    = {Fonod, Robert and Gill, Eberhard},
+      title     = {Magnetic Detumbling of Fast-tumbling Picosatellites},
+      booktitle = {69th International Astronautical Congress},
+      year      = {2018},
+      month     = {October},
+      address   = {Bremen, Germany},
+      note      = {IAC-18-C1.3.11},
+      url       = {https://research.tudelft.nl/files/47149549/IAC_18_C1_3_11_x46290.pdf}
+    }
+    ```
 
-If you reference or build upon the software itself, please also cite it via [`CITATION.cff`](CITATION.cff).
+    **Abstract:** *The problem of pure magnetic detumbling of a fast-tumbling picosatellite is considered. A new weighted B-dot control algorithm is proposed. The algorithm enables power reduction while not sacrificing detumbling performance. Analytical expressions relating the maximal expected rotational rate to the minimum sampling time required are presented. Simulation results demonstrate the practical benefits of the proposed approach for picosatellites.*
+
+2. **Repository Citation:** If you reference, modify, or build upon the software itself, please also cite the corresponding Zenodo release:
+
+    ```bibtex
+    @software{fonod2026detumbling,
+      author  = {Fonod, Robert},
+      license = {MIT},
+      month   = jul,
+      title   = {Detumbling Simulator: Magnetic Detumbling Control and Simulation for Fast-tumbling Picosatellites},
+      url     = {https://github.com/rfonod/detumbling-simulator},
+      doi     = {10.5281/zenodo.21346158},
+      version = {1.0.0},
+      year    = {2026}
+    }
+    ```
+
+Each GitHub release is automatically archived to [Zenodo](https://doi.org/10.5281/zenodo.21346158); see [`CITATION.cff`](CITATION.cff) for the latest version and DOI.
 
 ## Third-Party Code
 
